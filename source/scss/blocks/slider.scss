@@ -6,6 +6,7 @@
   .swiper-wrapper {
     min-height: 100vh;
     box-sizing: border-box;
+    transition: none;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(var(--vh, 1vh) * 100);
@@ -39,6 +40,7 @@
   &:nth-child(even) {
     .slider__item-text {
       align-self: flex-end;
+      transition-delay: 1000ms;
 
       @media (max-width: $mobile) and (orientation: landscape) {
         align-self: flex-start;
@@ -97,9 +99,9 @@
   font-size: 1.8rem;
   line-height: 2rem;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s;
-  transition-delay: 300ms;
+  transform: translateX(20px);
+  transition: all 1s;
+  transition-delay: 500ms;
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
     max-width: 340px;
@@ -283,7 +285,7 @@
 .swiper-slide-active, .swiper-slide-next {
   .slider__item-text {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 

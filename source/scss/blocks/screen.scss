@@ -354,3 +354,9 @@
 .screen--rules {
   background-color: $c-dark;
 }
+
+.document-ready {
+  .screen__footer {
+    bottom: 0;
+  }
+}

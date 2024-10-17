@@ -307,3 +307,16 @@
     width: 100%;
   }
 }
+
+.document-ready {
+  .page-header__logo {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .page-header__toggler {
+    opacity: 1;
+  }
+  .page-header__nav {
+    opacity: 1;
+  }
+}

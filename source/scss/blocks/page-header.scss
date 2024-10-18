@@ -35,6 +35,9 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: transform 0.5s cubic-bezier(0.17,1,0.8,0.98);
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -81,6 +84,8 @@
   background-color: $c-light;
   border-radius: 50%;
   z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.17,1,0.8,0.98);
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: block;
@@ -130,6 +135,8 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.17,1,0.8,0.98);
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
@@ -250,7 +257,7 @@
       height: 2px;
       background-color: $c-light;
       right: 0;
-      transition: width 0.3s ease;
+      transition: width 0.5s ease;
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
         right: 0;
@@ -267,7 +274,7 @@
     &.active,
     &:hover {
       &::after {
-        width: 100%;
+        width: 0;
         left: 0;
         right: auto;
       }
@@ -301,5 +308,28 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     margin-left: 0;
     width: 100%;
+  }
+}
+
+.document-ready {
+  .page-header__logo {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .page-header__toggler {
+    opacity: 1;
+  }
+  .page-header__nav {
+    opacity: 1;
+  }
+  .page-header__menu {
+    a {
+      &.active,
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
   }
 }

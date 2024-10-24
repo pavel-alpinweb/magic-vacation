@@ -17,6 +17,12 @@
   @media (max-width: $tablet - 1) and (orientation: landscape) {
     height: 100vh;
   }
+
+  &.active {
+    .screen__footer {
+      bottom: 0;
+    }
+  }
 }
 
 .screen__wrapper {
@@ -370,10 +376,4 @@
 
 .screen--rules {
   background-color: $c-dark;
-}
-
-.document-ready {
-  .screen__footer {
-    bottom: 0;
-  }
 }

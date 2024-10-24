@@ -3,3 +3,5 @@ export default () => {
     document.body.classList.add(`document-ready`);
   });
 };
+
+export const SCREEN_BLOCKER_TIMEOUT = 400;

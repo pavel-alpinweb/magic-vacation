@@ -1,10 +1,12 @@
 import throttle from 'lodash/throttle';
+import {SCREEN_BLOCKER_TIMEOUT} from "./animations";
 
 export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 1000;
     this.scrollFlag = true;
     this.timeout = null;
+    this.scrollBlockerTimeout = 0;
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
@@ -46,7 +48,12 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
-    this.changeVisibilityDisplay();
+    const activeScreen = this.screenElements[this.activeScreen];
+    this.scrollBlockerTimeout = activeScreen.classList.contains(`screen--prizes`) ? SCREEN_BLOCKER_TIMEOUT : 0;
+    this.showScreenBlocker();
+    setTimeout(() => {
+      this.changeVisibilityDisplay();
+    }, this.scrollBlockerTimeout);
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
   }
@@ -60,6 +67,16 @@ export default class FullPageScroll {
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
     }, 100);
+  }
+
+  showScreenBlocker() {
+    const activeScreen = this.screenElements[this.activeScreen];
+    const screenBlocker = document.querySelector(`#history-screen-blocker`);
+    if (activeScreen.classList.contains(`screen--prizes`)) {
+      screenBlocker.classList.add(`show`);
+    } else {
+      screenBlocker.classList.remove(`show`);
+    }
   }
 
   changeActiveMenuItem() {

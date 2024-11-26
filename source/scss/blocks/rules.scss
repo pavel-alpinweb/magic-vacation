@@ -1,3 +1,9 @@
+@keyframes bullets {
+  100% {
+    transform: scale(1);
+  }
+}
+
 .rules {
   position: relative;
   flex-grow: 1;
@@ -161,6 +167,10 @@
     text-align: center;
     transform: scale(0);
 
+    animation: bullets 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 1.12, 0.99, 1.48);
+
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
       width: 2.5rem;
@@ -175,6 +185,14 @@
       height: 2.5rem;
       line-height: 3rem;
       font-size: 1.4rem;
+    }
+  }
+
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      &::before {
+        animation-delay: ($i * 0.1s);
+      }
     }
   }
 

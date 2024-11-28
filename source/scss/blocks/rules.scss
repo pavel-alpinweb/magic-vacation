@@ -4,6 +4,18 @@
   }
 }
 
+@keyframes rules-text {
+
+  50% {
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .rules {
   position: relative;
   flex-grow: 1;
@@ -190,8 +202,8 @@
 
   @for $i from 1 through 4 {
     &:nth-child(#{$i}) {
-      &::before {
-        animation-delay: ($i * 0.1s);
+      &::before, p {
+        animation-delay: ($i * 0.2s);
       }
     }
   }
@@ -200,6 +212,9 @@
     margin: 0;
     transform: translateX(15px);
     opacity: 0;
+
+    animation: rules-text 0.3s;
+    animation-fill-mode: forwards;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);

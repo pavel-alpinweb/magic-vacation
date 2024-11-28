@@ -16,6 +16,31 @@
   }
 }
 
+@keyframes rules-btn {
+  25% {
+    opacity: 1;
+    color: transparent;
+  }
+
+  50% {
+    color: transparent;
+  }
+
+  75% {
+    color: transparent;
+  }
+
+  90% {
+    width: 212px;
+  }
+
+  100% {
+    opacity: 1;
+    width: auto;
+    color: #5f458c;
+  }
+}
+
 .rules {
   position: relative;
   flex-grow: 1;
@@ -227,8 +252,14 @@
   bottom: 6rem;
   right: 5.6rem;
   width: 71px;
+  height: 71px;
+  line-height: 1.5em;
   color: transparent;
   opacity: 0;
+
+  animation: rules-btn 0.3s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;

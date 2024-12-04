@@ -1,3 +1,21 @@
+@keyframes form-btn {
+  25% {
+    color: rgba(#5f458c, 0);
+  }
+
+  50% {
+    color: rgba(#5f458c, 0.5);
+  }
+
+  90% {
+    color: rgba(#5f458c, 0.9);
+  }
+
+  100% {
+    color: rgba(#5f458c, 1);
+  }
+}
+
 .form {
   position: relative;
   display: flex;
@@ -83,9 +101,17 @@
 
 .form__button {
   width: 21rem;
+  height: 71px;
+  line-height: 1.5em;
+  color: rgba(#5f458c, 0);
   position: absolute;
   right: 0;
   bottom: 0;
+
+  animation: form-btn 750ms;
+  animation-fill-mode: forwards;
+  animation-delay: 250ms;
+
   @media (orientation: portrait) {
     flex: none;
     padding: 0;

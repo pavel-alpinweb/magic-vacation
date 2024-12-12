@@ -1,3 +1,5 @@
+import {getRandom} from "./utils";
+
 export default class TextAnimation {
   constructor(
       element,
@@ -23,8 +25,8 @@ export default class TextAnimation {
     const wordElement = Array.from(word).reduce((fragment, latter) => {
       const span = document.createElement(`span`);
       span.textContent = latter;
+      this._timeOffset = getRandom(this._timeOffset, this._timeOffset += this._timeGap);
       span.style.transition = `${this._PROPERTY} ${this._duration}ms ease ${this._timeOffset}ms`;
-      this._timeOffset += 20;
       fragment.appendChild(span);
       return fragment;
     }, document.createDocumentFragment());

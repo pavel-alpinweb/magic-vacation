@@ -4,7 +4,7 @@ export default () => {
   window.addEventListener(`load`, () => {
     document.body.classList.add(`document-ready`);
 
-    const introTitleAnimation = new TextAnimation(`.intro__title`, 100, 1000, 500);
+    const introTitleAnimation = new TextAnimation(`.intro__title`, 100, 400, 500);
 
     introTitleAnimation.runAnimation();
   });

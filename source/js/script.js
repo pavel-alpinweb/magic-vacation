@@ -9,6 +9,7 @@ import form from './modules/form.js';
 import social from './modules/social.js';
 import animations from './modules/animations.js';
 import FullPageScroll from './modules/full-page-scroll';
+import TextAnimationSwitcher from "./modules/TextAnimationSwitcher";
 
 // init modules
 mobileHeight();
@@ -22,4 +23,6 @@ social();
 animations();
 
 const fullPageScroll = new FullPageScroll();
+const textAnimationSwitcher = new TextAnimationSwitcher();
 fullPageScroll.init();
+textAnimationSwitcher.init();

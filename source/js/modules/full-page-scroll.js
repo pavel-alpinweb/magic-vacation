@@ -93,7 +93,8 @@ export default class FullPageScroll {
         'screenId': this.activeScreen,
         'screenName': this.screenElements[this.activeScreen].id,
         'screenElement': this.screenElements[this.activeScreen]
-      }
+      },
+      bubbles: true,
     });
 
     document.body.dispatchEvent(event);

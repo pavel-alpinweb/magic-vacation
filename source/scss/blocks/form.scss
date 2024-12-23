@@ -1,18 +1,49 @@
-@keyframes form-btn {
+@keyframes form-btn-color {
   25% {
     color: rgba(#5f458c, 0);
   }
 
-  50% {
-    color: rgba(#5f458c, 0.5);
+  100% {
+    color: rgba(#5f458c, 1);
   }
+}
 
-  90% {
-    color: rgba(#5f458c, 0.9);
+@keyframes form-btn-fade {
+  0% {
+    opacity: 0;
   }
 
   100% {
-    color: rgba(#5f458c, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes result-input {
+  0% {
+    width: 71px;
+    padding: 0;
+    opacity: 0;
+  }
+  100% {
+    padding: 0 5.6rem;
+    opacity: 1;
+    width: calc(100% - 31rem);
+
+    @media (min-width: $stop-scaling) {
+      width: calc(100% - 310px);
+    }
+
+    @media (orientation: portrait) {
+      width: calc(100% - 5rem);
+    }
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: calc(100% - 9rem);
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      width: calc(100% - 5rem);
+    }
   }
 }
 
@@ -108,7 +139,7 @@
   right: 0;
   bottom: 0;
 
-  animation: form-btn 750ms;
+  animation: form-btn-color 750ms;
   animation-fill-mode: forwards;
   animation-delay: 250ms;
 
@@ -155,23 +186,26 @@
 }
 
 .form--result {
-  .form__field {
-    width: calc(100% - 31rem);
+  .form__button {
+    opacity: 0;
+  }
 
+  .form__field {
+    width: 0;
     @media (min-width: $stop-scaling) {
-      width: calc(100% - 310px);
+      width:  0;
     }
 
     @media (orientation: portrait) {
-      width: calc(100% - 5rem);
+      width:  0;
     }
 
     @media (max-width: $tablet) and (orientation: landscape) {
-      width: calc(100% - 9rem);
+      width: 0;
     }
 
     @media (max-width: $mobile) and (orientation: landscape) {
-      width: calc(100% - 5rem);
+      width: 0;
     }
   }
 }
@@ -180,5 +214,17 @@
   .form__field {
     padding: 0 5.6rem;
     width: calc(100% - 21rem);
+  }
+}
+
+.screen--result.screen--show {
+  .form__field{
+    animation: result-input 0.5s linear forwards;
+    animation-delay: 1s;
+  }
+  .form__button {
+    animation: form-btn-color 0.75s, form-btn-fade 0.5s;
+    animation-fill-mode: forwards, forwards;
+    animation-delay: 1.25s, 1s;
   }
 }

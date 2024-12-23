@@ -128,6 +128,21 @@
   }
 }
 
+@keyframes result-btn-fade-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes result-btn-scroll {
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+}
+
 .result {
   flex-grow: 1;
   display: flex;
@@ -149,6 +164,17 @@
 
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 3rem 0;
+  }
+
+  &--negative {
+    .result__button {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      span {
+        transform: translateX(8rem) rotate(90deg);
+      }
+    }
   }
 }
 
@@ -436,5 +462,17 @@ img.result__prize-image {
     animation: leaf-green-out 5s forwards;
     animation-timing-function: ease-out;
     animation-delay: 0.47s;
+  }
+}
+
+.screen--result.screen--show {
+  .result--negative {
+    .result__button {
+      animation: result-btn-fade-out 0.5s forwards;
+
+      span {
+        animation: result-btn-scroll 0.5s forwards;
+      }
+    }
   }
 }

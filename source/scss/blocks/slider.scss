@@ -185,6 +185,84 @@
     height: 40px;
   }
 
+  &.purple {
+    color: $c-light-purple;
+
+    &:hover {
+      color: $c-dark;
+    }
+
+    &:focus {
+      color: $c-dark;
+
+      &::before {
+        border-color: $c-dark;
+      }
+    }
+
+    &:active,
+    &:active:focus {
+      color: $c-light;
+
+      &::before {
+        background-color: $c-dark;
+        border-color: $c-dark;
+      }
+    }
+  }
+
+  &.blue {
+    color: $c-blue-accent;
+
+    &:hover {
+      color: $c-blue;
+    }
+
+    &:focus {
+      color: $c-blue;
+
+      &::before {
+        border-color: $c-blue;
+      }
+    }
+
+    &:active,
+    &:active:focus {
+      color: $c-light;
+
+      &::before {
+        background-color: $c-blue;
+        border-color: $c-blue;
+      }
+    }
+  }
+
+  &.grey {
+    color: $c-grey;
+
+    &:hover {
+      color: $c-grey-accent;
+    }
+
+    &:focus {
+      color: $c-grey-accent;
+
+      &::before {
+        border-color: $c-grey-accent;
+      }
+    }
+
+    &:active,
+    &:active:focus {
+      color: $c-light;
+
+      &::before {
+        background-color: $c-grey-accent;
+        border-color: $c-grey-accent;
+      }
+    }
+  }
+
   &::before {
     @include center;
     content: "";
@@ -194,6 +272,7 @@
     border: 2px solid $c-light;
     border-radius: 50%;
     z-index: -1;
+    transition: all 0.3s ease;
   }
 
   svg {

@@ -185,6 +185,51 @@
   line-height: 1.0418;
   color: $c-light;
 
+  &.purple {
+    a {
+      &:hover,
+      &:focus {
+        color: $c-dark !important;
+        outline: none;
+
+        &::after {
+          opacity: 1;
+          background-color: $c-dark !important;
+        }
+      }
+    }
+  }
+
+  &.blue {
+    a {
+      &:hover,
+      &:focus {
+        color: $c-blue !important;
+        outline: none;
+
+        &::after {
+          opacity: 1;
+          background-color: $c-blue !important;
+        }
+      }
+    }
+  }
+
+  &.grey {
+    a {
+      &:hover,
+      &:focus {
+        color: $c-grey-accent !important;
+        outline: none;
+
+        &::after {
+          opacity: 1;
+          background-color: $c-grey-accent !important;
+        }
+      }
+    }
+  }
+
   @media (min-width: $stop-scaling) {
     font-size: 12px;
   }

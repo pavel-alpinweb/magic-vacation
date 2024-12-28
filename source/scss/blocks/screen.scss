@@ -68,16 +68,25 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
-  transition: bottom 0.5s cubic-bezier(0.17,1,0.8,0.98);
+  transition: bottom 0.5s cubic-bezier(0.17,1,0.8,0.98), width 0.3s linear, height 0.3s linear;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 0 3.6rem 0 0;
+    .screen__footer-announce {
+      opacity: 0;
+      transition: opacity 0.3s linear;
+      transition-delay: 0.3s;
+    }
 
     &.screen__footer--full {
       width: 100%;
       height: 18rem;
+
+      .screen__footer-announce {
+        opacity: 1;
+      }
     }
   }
 
@@ -86,9 +95,19 @@
     height: 3.5rem;
     border-radius: 0 3.6rem 0 0;
 
+    .screen__footer-announce, .screen__footer-note {
+      opacity: 0;
+      transition: opacity 0.3s linear;
+      transition-delay: 0.4s;
+    }
+
     &.screen__footer--full {
       width: 100%;
       height: 16rem;
+
+      .screen__footer-announce, .screen__footer-note {
+        opacity: 1;
+      }
     }
   }
 }
@@ -376,4 +395,19 @@
 
 .screen--rules {
   background-color: $c-dark;
+
+  &.active {
+    .disclaimer {
+      li {
+        opacity: 1;
+      }
+    }
+  }
+
+  .disclaimer {
+    li {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+  }
 }

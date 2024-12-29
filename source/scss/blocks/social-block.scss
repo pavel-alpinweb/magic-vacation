@@ -23,8 +23,16 @@
         border: 2px solid $c-purple;
       }
 
+      &:focus {
+        color: $c-light;
+      }
+
       &.purple {
         color: $c-light;
+
+        &:focus {
+          color: $c-light;
+        }
 
         &::before {
           background-color: $c-dark;
@@ -35,6 +43,10 @@
       &.blue {
         color: $c-light;
 
+        &:focus {
+          color: $c-light;
+        }
+
         &::before {
           background-color: $c-blue;
           border-color: $c-blue;
@@ -43,6 +55,10 @@
 
       &.grey {
         color: $c-light;
+
+        &:focus {
+          color: $c-light;
+        }
 
         &::before {
           background-color: $c-blue-accent;

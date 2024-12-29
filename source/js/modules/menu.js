@@ -1,6 +1,6 @@
 export default () => {
   let header = document.querySelector(`.js-header`);
-  let menuToggler = document.querySelector(`.js-menu-toggler`);
+  let menuToggler = document.querySelector(`.js-social-block-toggle`);
   let menuLinks = document.querySelectorAll(`.js-menu-link`);
 
   if (menuToggler) {

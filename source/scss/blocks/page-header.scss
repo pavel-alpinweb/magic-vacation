@@ -150,6 +150,7 @@
     padding: 4rem 3.5rem;
     color: $c-dark;
     background-color: $c-light;
+    transition: transform 0.3s ease-out;
 
     .page-header--menu-opened & {
       transform: translateX(0);
@@ -184,6 +185,51 @@
   font-size: 1.2rem;
   line-height: 1.0418;
   color: $c-light;
+
+  &.purple {
+    a {
+      &:hover,
+      &:focus {
+        color: $c-dark !important;
+        outline: none;
+
+        &::after {
+          opacity: 1;
+          background-color: $c-dark !important;
+        }
+      }
+    }
+  }
+
+  &.blue {
+    a {
+      &:hover,
+      &:focus {
+        color: $c-blue !important;
+        outline: none;
+
+        &::after {
+          opacity: 1;
+          background-color: $c-blue !important;
+        }
+      }
+    }
+  }
+
+  &.grey {
+    a {
+      &:hover,
+      &:focus {
+        color: $c-grey-accent !important;
+        outline: none;
+
+        &::after {
+          opacity: 1;
+          background-color: $c-grey-accent !important;
+        }
+      }
+    }
+  }
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;

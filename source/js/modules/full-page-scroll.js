@@ -1,5 +1,6 @@
 import throttle from 'lodash/throttle';
 import {SCREEN_BLOCKER_TIMEOUT} from "./animations";
+import {elements, resetThemeColor, setThemeColor, themeColorElements} from "./ChangeThemeColor";
 
 export default class FullPageScroll {
   constructor() {
@@ -50,6 +51,13 @@ export default class FullPageScroll {
   changePageDisplay() {
     const activeScreen = this.screenElements[this.activeScreen];
     this.scrollBlockerTimeout = activeScreen.classList.contains(`screen--prizes`) ? SCREEN_BLOCKER_TIMEOUT : 0;
+    if (activeScreen.classList.contains(`screen--story`)) {
+      setThemeColor(`purple`);
+    } else {
+      for (const element of themeColorElements) {
+        resetThemeColor(element);
+      }
+    }
     this.showScreenBlocker();
     setTimeout(() => {
       this.changeVisibilityDisplay();

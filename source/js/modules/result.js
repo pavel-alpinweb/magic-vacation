@@ -26,6 +26,12 @@ export default () => {
         });
         document.getElementById(`messages`).innerHTML = ``;
         document.getElementById(`message-field`).focus();
+
+        const event = new CustomEvent(`startGame`, {
+          bubbles: true,
+        });
+
+        document.body.dispatchEvent(event);
       });
     }
   }

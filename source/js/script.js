@@ -10,6 +10,7 @@ import social from './modules/social.js';
 import animations from './modules/animations.js';
 import FullPageScroll from './modules/full-page-scroll';
 import TextAnimationSwitcher from "./modules/TextAnimationSwitcher";
+import GameCounter from "./modules/gameCounter";
 
 // init modules
 mobileHeight();
@@ -24,5 +25,7 @@ animations();
 
 const fullPageScroll = new FullPageScroll();
 const textAnimationSwitcher = new TextAnimationSwitcher();
+const gameCounter = new GameCounter(`.js-game-counter`, 60 * 5);
 fullPageScroll.init();
 textAnimationSwitcher.init();
+gameCounter.init();

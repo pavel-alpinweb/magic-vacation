@@ -1,6 +1,6 @@
 import throttle from 'lodash/throttle';
 import {SCREEN_BLOCKER_TIMEOUT} from "./animations";
-import {elements, resetThemeColor, setThemeColor, themeColorElements} from "./ChangeThemeColor";
+import {resetThemeColor, setThemeColor, themeColorElements} from "./ChangeThemeColor";
 
 export default class FullPageScroll {
   constructor() {
@@ -64,6 +64,7 @@ export default class FullPageScroll {
     }, this.scrollBlockerTimeout);
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
+    this.startGame();
   }
 
   changeVisibilityDisplay() {
@@ -106,6 +107,21 @@ export default class FullPageScroll {
     });
 
     document.body.dispatchEvent(event);
+  }
+
+  startGame() {
+    const isResultScreenShow = document.querySelector(`.screen--result.screen--show`);
+
+    const activeScreen = this.screenElements[this.activeScreen];
+    const isGameScreen = activeScreen.classList.contains(`screen--game`);
+
+    if (!isResultScreenShow && isGameScreen) {
+      const event = new CustomEvent(`startGame`, {
+        bubbles: true,
+      });
+
+      document.body.dispatchEvent(event);
+    }
   }
 
   reCalculateActiveScreenPosition(delta) {

@@ -1,29 +1,21 @@
 import animateInterval from "./animateInterval";
 
 export default class GameCounter {
-  constructor(element, duration) {
-    this.elementSelector = element;
-    this.element = null;
-    this.startTime = null;
-    this.currentTimeDuration = 0;
-    this.requestID = null;
+  constructor(elementSelector, duration) {
+    this.element = document.querySelector(elementSelector);
     this.duration = duration;
   }
 
   startCounter() {
-    this.startTime = Date.now();
-
-    this.currentTimeDuration = this.duration;
-    animateInterval(this.duration, () => {
-      this.updateTime();
+    animateInterval(this.duration, (currentTimeDuration) => {
+      this.updateTime(currentTimeDuration);
     });
   }
 
-  updateTime() {
-    this.currentTimeDuration = this.duration - (((Date.now() - this.startTime) / 1000) | 0);
+  updateTime(currentTimeDuration) {
 
-    const minutes = Math.floor(this.currentTimeDuration / 60);
-    const seconds = Math.floor(this.currentTimeDuration % 60) | 0;
+    const minutes = Math.floor(currentTimeDuration / 60);
+    const seconds = Math.floor(currentTimeDuration % 60) | 0;
 
     const [spanMinutes, spanSeconds] = this.element.querySelectorAll(`span`);
 
@@ -32,8 +24,6 @@ export default class GameCounter {
   }
 
   init() {
-    this.element = document.querySelector(this.elementSelector);
-
     document.addEventListener(`startGame`, () => {
       this.startCounter();
     });

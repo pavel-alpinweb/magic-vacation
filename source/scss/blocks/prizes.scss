@@ -107,6 +107,18 @@
 .prizes__item {
   margin-left: 7.5rem;
 
+  &--journeys {
+    min-width: 325px;
+  }
+
+  &--cases {
+    min-width: 265px;
+  }
+
+  &--codes {
+    min-width: 420px;
+  }
+
   @media (min-width: $stop-scaling) {
     margin-left: 75px;
   }

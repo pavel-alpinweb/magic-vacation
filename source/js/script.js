@@ -32,21 +32,21 @@ const prizeCounterJourneys = new PrizeCounter({
   step: 1,
   max: 3,
   fps: 3,
-  delay: 0,
+  delay: 1700,
 });
 const prizeCounterCases = new PrizeCounter({
   elementSelector: `.js-prize-cases`,
   step: 1,
   max: 7,
   fps: 12,
-  delay: 1000,
+  delay: 2100,
 });
 const prizeCounterCodes = new PrizeCounter({
   elementSelector: `.js-prize-codes`,
   step: 24,
   max: 900,
   fps: 30,
-  delay: 1500,
+  delay: 2600,
 });
 
 fullPageScroll.init();

@@ -4,4 +4,4 @@ export default () => {
   });
 };
 
-export const SCREEN_BLOCKER_TIMEOUT = 400;
+export const SCREEN_BLOCKER_TIMEOUT = 1000;

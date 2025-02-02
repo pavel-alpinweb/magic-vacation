@@ -45,7 +45,7 @@
   left: 0;
   bottom: 0;
   z-index: 1;
-  transition: height 0.4s cubic-bezier(0.17,1,0.8,0.98);
+  transition: height 1s ease;
 
   &.show {
     height: 100%;
@@ -68,7 +68,7 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
-  transition: bottom 0.5s cubic-bezier(0.17,1,0.8,0.98), width 0.3s linear, height 0.3s linear;
+  transition: bottom 0.75s cubic-bezier(0.17,1,0.8,0.98), width 0.3s linear, height 0.3s linear;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;

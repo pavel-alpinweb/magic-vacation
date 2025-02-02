@@ -7,7 +7,7 @@ export default class TextAnimationSwitcher {
         screen: `top`,
         animations: [
           new TextAnimation(`.intro__title`, 100, 400, 100),
-          new TextAnimation(`.intro__date`, 100, 400, 1000),
+          new TextAnimation(`.intro__date`, 100, 600, 1000),
         ],
       },
       {
@@ -19,7 +19,7 @@ export default class TextAnimationSwitcher {
       {
         screen: `prizes`,
         animations: [
-          new TextAnimation(`.prizes__title`, 100, 400, 500),
+          new TextAnimation(`.prizes__title`, 100, 400, 1100),
         ],
       },
       {

@@ -1,4 +1,7 @@
+import Scene2dSeaCalf from "./scene-2d-sea-calf";
+
 export default () => {
+  const scene = new Scene2dSeaCalf();
   let showResultEls = document.querySelectorAll(`.js-show-result`);
   let results = document.querySelectorAll(`.screen--result`);
   if (results.length) {
@@ -14,6 +17,10 @@ export default () => {
         });
         targetEl[0].classList.add(`screen--show`);
         targetEl[0].classList.remove(`screen--hidden`);
+
+        if (target === `result`) {
+          scene.start();
+        }
       });
     }
 

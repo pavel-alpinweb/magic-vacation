@@ -45,7 +45,7 @@ const prizeCounterCodes = new PrizeCounter({
   elementSelector: `.js-prize-codes`,
   step: 24,
   max: 900,
-  fps: 30,
+  fps: 50,
   delay: 2600,
 });
 

@@ -168,7 +168,7 @@ export default class Scene2dSeaCalf extends Scene2d {
           45 * Math.sin(Math.PI * progressReversed) + 45 * progressReversed;
         this.objects.plane.opacity = progress;
       },
-      duration: 500,
+      duration: 750,
       delay: 200,
       easing: easings.easeInQuad
     }));
@@ -187,7 +187,7 @@ export default class Scene2dSeaCalf extends Scene2d {
         this.locals.blob.deltasLength = 10 * progress;
         this.locals.blob.opacity = progress;
       },
-      duration: 500,
+      duration: 750,
       delay: 200,
       easing: easings.easeInQuad
     }));
@@ -274,7 +274,7 @@ export default class Scene2dSeaCalf extends Scene2d {
         this.objects.snowflake2.opacity = progress;
       },
       duration: 500,
-      delay: 900,
+      delay: 1000,
       easing: easings.easeInQuad
     }));
   }

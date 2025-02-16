@@ -190,6 +190,14 @@
   align-items: center;
   z-index: -1;
 
+  &--mob {
+    display: block;
+    height: 100vmin;
+    width: 100vmin;
+    margin: 0 auto;
+    background-color: #5f458c;
+  }
+
   @media (orientation: portrait) {
     left: -1rem;
     right: -1rem;

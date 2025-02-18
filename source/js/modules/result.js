@@ -23,7 +23,6 @@ export default () => {
         if (target === `result`) {
           scene2dSeaCalf.start();
         } else if (target === `result3`) {
-          console.log(`scene2dCrocodile`, scene2dCrocodile);
           scene2dCrocodile.start();
         }
       });

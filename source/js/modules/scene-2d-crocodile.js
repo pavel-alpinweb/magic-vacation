@@ -1,4 +1,6 @@
 import Scene2d from "./scene-2d";
+import Animation from "./Animation";
+import easings from "./easings";
 
 const IMAGES_URLS = Object.freeze({
   crocodile: `img/module-4/lose-images/crocodile.png`,
@@ -44,12 +46,14 @@ const OBJECTS = Object.freeze({
   },
   key: {
     imageId: `key`,
-    x: 90,
+    x: 50,
     y: 50,
-    size: 10,
+    size: 15,
     opacity: 0,
     transforms: {
-      translateY: -10
+      translateY: 0,
+      scaleX: -1,
+      scaleY: -1,
     }
   },
   leaf: {
@@ -113,6 +117,39 @@ export default class Scene2dCrocodile extends Scene2d {
     window.addEventListener(`resize`, () => {
       this.updateSize();
     });
+  }
+
+  initAnimations() {
+    this.animations.push(new Animation({
+      func: () => {
+        this.drawScene();
+      },
+      duration: `infinite`,
+      fps: 60
+    }));
+
+    this.initKeyAnimations();
+  }
+
+  initKeyAnimations() {
+    this.animations.push(new Animation({
+      func: (progress) => {
+        this.objects.key.opacity = progress;
+      },
+      duration: 200,
+      delay: 0,
+      easing: easings.easeOutExpo
+    }));
+
+    this.animations.push(new Animation({
+      func: (progress) => {
+        this.objects.key.transforms.scaleX = progress;
+        this.objects.key.transforms.scaleY = progress;
+      },
+      duration: 500,
+      delay: 0,
+      easing: easings.easeOutExpo
+    }));
   }
 
   updateSize() {

@@ -52,8 +52,6 @@ const OBJECTS = Object.freeze({
     opacity: 0,
     transforms: {
       translateY: 0,
-      scaleX: -1,
-      scaleY: -1,
     }
   },
   leaf: {
@@ -134,20 +132,19 @@ export default class Scene2dCrocodile extends Scene2d {
   initKeyAnimations() {
     this.animations.push(new Animation({
       func: (progress) => {
-        this.objects.key.opacity = progress;
+        this.objects.key.size = progress * 15;
       },
-      duration: 200,
+      duration: 500,
       delay: 0,
       easing: easings.easeOutExpo
     }));
 
     this.animations.push(new Animation({
       func: (progress) => {
-        this.objects.key.transforms.scaleX = progress;
-        this.objects.key.transforms.scaleY = progress;
+        this.objects.key.opacity = progress;
       },
       duration: 500,
-      delay: 0,
+      delay: 200,
       easing: easings.easeOutExpo
     }));
   }

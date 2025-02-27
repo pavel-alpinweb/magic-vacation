@@ -54,6 +54,25 @@ function easeInQuad(x) {
   return x * x;
 }
 
+function easeOutCirc(x) {
+  return Math.sqrt(1 - Math.pow(x - 1, 2));
+}
+
+function easeInCirc(x) {
+  return 1 - Math.sqrt(1 - Math.pow(x, 2));
+}
+
+function easeInQuint(x) {
+  return x * x * x * x * x;
+}
+
+function easeInBack(x) {
+  const c1 = 1.70158;
+  const c3 = c1 + 1;
+
+  return c3 * x * x * x - c1 * x * x;
+}
+
 const timingFunctions = Object.freeze({
   easeLinear,
   easeInCubic,
@@ -63,6 +82,10 @@ const timingFunctions = Object.freeze({
   easeInElastic,
   easeOutElastic,
   easeInQuad,
+  easeOutCirc,
+  easeInCirc,
+  easeInQuint,
+  easeInBack,
 });
 
 

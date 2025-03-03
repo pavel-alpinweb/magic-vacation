@@ -1,4 +1,4 @@
-export default function (duration, callback, interval = 1000) {
+export default function (duration, callback) {
   const startTime = Date.now();
 
   requestAnimationFrame(function draw() {
@@ -6,9 +6,7 @@ export default function (duration, callback, interval = 1000) {
     callback(currentTimeDuration);
 
     if (currentTimeDuration > 0) {
-      setTimeout(() => {
-        requestAnimationFrame(draw);
-      }, interval);
+      requestAnimationFrame(draw);
     }
   });
 }
